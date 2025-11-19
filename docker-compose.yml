@@ -1,0 +1,40 @@
+version: '3.8'
+
+services:
+  ojs:
+    image: pkpofficial/ojs:3_4_0-5
+    container_name: ojs
+    restart: unless-stopped
+    depends_on:
+      - mysql
+    environment:
+      SERVERNAME: localhost
+      OJS_DB_HOST: mysql
+      OJS_DB_USER: Admin
+      OJS_DB_PASSWORD: Project@1
+      OJS_DB_NAME: ojs
+    ports:
+      - "8081:80"
+    volumes:
+      - ojs-public:/var/www/html/public
+      - ojs-private:/var/www/files
+      - ojs-config:/var/www/html/config
+
+  mysql:
+    image: mariadb:10.5
+    container_name: ojs-mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: Project@1
+      MYSQL_DATABASE: ojs
+      MYSQL_USER: Admin
+      MYSQL_PASSWORD: Project@1
+    command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+    volumes:
+      - db_data:/var/lib/mysql
+
+volumes:
+  ojs-public:
+  ojs-private:
+  ojs-config:
+  db_data:
