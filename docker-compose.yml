@@ -8,7 +8,7 @@ services:
     depends_on:
       - mysql
     environment:
-      SERVERNAME: localhost
+      SERVERNAME: ijaml.com
       OJS_DB_HOST: mysql
       OJS_DB_USER: Admin
       OJS_DB_PASSWORD: Project@1
