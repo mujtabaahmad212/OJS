@@ -15,11 +15,10 @@ services:
       OJS_DB_DRIVER: mysqli
     ports:
       - '8081:80'
-    volumes:
+  volumes:
       - ojs-public-v4:/var/www/html/public
       - ojs-private-v4:/var/www/files
-      # NEECHAY WALI LINE SAB SE ZAROORI HAI - Ye aapki manual file inject karegi
-      - ./config.inc.php:/var/www/html/config.inc.php
+      - ./config.inc.php:/var/www/html/config.inc.php  <-- YE LINE SAB SE ZAROORI HAI
     labels:
       - traefik.enable=true
       - traefik.docker.network=dokploy-network
