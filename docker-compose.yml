@@ -8,14 +8,14 @@ services:
       - mysql
     environment:
       SERVERNAME: ijaml.com
-      HTTPS: 'on'
+      HTTPS: "on"
       OJS_DB_HOST: mysql
       OJS_DB_USER: Admin
       OJS_DB_PASSWORD: Project@1
       OJS_DB_NAME: ojs
       OJS_DB_DRIVER: mysqli
     ports:
-      - '8081:80'
+      - "8081:80"
     volumes:
       - ojs-public-v4:/var/www/html/public
       - ojs-private-v4:/var/www/files
@@ -41,7 +41,7 @@ services:
       MYSQL_DATABASE: ojs
       MYSQL_USER: Admin
       MYSQL_PASSWORD: Project@1
-    command: '--character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci'
+    command: "--character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci"
     volumes:
       - db_data-v4:/var/lib/mysql
     networks:
