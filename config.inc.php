@@ -1,6 +1,4 @@
-<?php
-// Manual Config for SSL Fix
-$config = array();
+<?php exit; ?>
 
 [general]
 installed = Off
