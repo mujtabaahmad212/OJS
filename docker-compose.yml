@@ -18,7 +18,7 @@ services:
   volumes:
       - ojs-public-v4:/var/www/html/public
       - ojs-private-v4:/var/www/files
-      - ./config.inc.php:/var/www/html/config.inc.php  <-- YE LINE SAB SE ZAROORI HAI
+      - ./config.inc.php:/var/www/html/config.inc.php 
     labels:
       - traefik.enable=true
       - traefik.docker.network=dokploy-network
