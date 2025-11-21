@@ -16,9 +16,10 @@ services:
     ports:
       - '8081:80'
     volumes:
-      - ojs-public-v3:/var/www/html/public
-      - ojs-private-v3:/var/www/files
-      - ojs-config-v3:/var/www/html/config
+      - ojs-public-v4:/var/www/html/public
+      - ojs-private-v4:/var/www/files
+      # NEECHAY WALI LINE SAB SE ZAROORI HAI - Ye aapki manual file inject karegi
+      - ./config.inc.php:/var/www/html/config.inc.php
     labels:
       - traefik.enable=true
       - traefik.docker.network=dokploy-network
@@ -42,15 +43,14 @@ services:
       MYSQL_PASSWORD: Project@1
     command: '--character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci'
     volumes:
-      - db_data-v3:/var/lib/mysql
+      - db_data-v4:/var/lib/mysql
     networks:
       - dokploy-network
 
 volumes:
-  ojs-public-v3:
-  ojs-private-v3:
-  ojs-config-v3:
-  db_data-v3:
+  ojs-public-v4:
+  ojs-private-v4:
+  db_data-v4:
 
 networks:
   dokploy-network:
