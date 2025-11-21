@@ -1,4 +1,3 @@
-version: '3.8'
 services:
   ojs:
     image: pkpofficial/ojs:3_4_0-5
@@ -8,7 +7,7 @@ services:
       - mysql
     environment:
       SERVERNAME: ijaml.com
-      HTTPS: 'on'                # <--- Ye ZAROORI hai
+      HTTPS: 'on'
       OJS_DB_HOST: mysql
       OJS_DB_USER: Admin
       OJS_DB_PASSWORD: Project@1
@@ -17,9 +16,9 @@ services:
     ports:
       - '8081:80'
     volumes:
-      - ojs-public-v2:/var/www/html/public   # <--- Name change kiya (v2)
-      - ojs-private-v2:/var/www/files        # <--- Name change kiya (v2)
-      - ojs-config-v2:/var/www/html/config   # <--- Name change kiya (v2)
+      - ojs-public-v3:/var/www/html/public
+      - ojs-private-v3:/var/www/files
+      - ojs-config-v3:/var/www/html/config
     labels:
       - traefik.enable=true
       - traefik.docker.network=dokploy-network
@@ -43,15 +42,15 @@ services:
       MYSQL_PASSWORD: Project@1
     command: '--character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci'
     volumes:
-      - db_data-v2:/var/lib/mysql            # <--- Name change kiya (v2)
+      - db_data-v3:/var/lib/mysql
     networks:
       - dokploy-network
 
 volumes:
-  ojs-public-v2:   # <--- Yahan bhi change karein
-  ojs-private-v2:  # <--- Yahan bhi change karein
-  ojs-config-v2:   # <--- Yahan bhi change karein
-  db_data-v2:      # <--- Yahan bhi change karein
+  ojs-public-v3:
+  ojs-private-v3:
+  ojs-config-v3:
+  db_data-v3:
 
 networks:
   dokploy-network:
