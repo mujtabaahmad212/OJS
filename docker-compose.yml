@@ -3,7 +3,7 @@ services:
     image: pkpofficial/ojs:3_4_0-5
     container_name: ojs
     restart: unless-stopped
-    user: root                 # <--- YE HAI JAADUI LINE (Permission error fix karegi)
+    user: root
     depends_on:
       - mysql
     environment:
